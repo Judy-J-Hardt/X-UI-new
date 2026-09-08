@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  3x-ui:
+    image: ghcr.io/mhsanaei/3x-ui:latest
+    container_name: 3x-ui
+    restart: unless-stopped
+    ports:
+      - "2053:2053"
+      - "8080:8080"
+    environment:
+      - XUI_PORT=2053
+      - XUI_BASE_PATH=/your_secret_path
+    volumes:
+      - 3x-ui-data:/etc/x-ui
