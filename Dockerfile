@@ -1,6 +1,7 @@
-FROM node:20-alpine
-RUN apk add --no-cache curl bash
-WORKDIR /app
-RUN curl -Ls https://raw.githubusercontent.com/MHSanaei/3x-ui/master/install.sh | bash
-EXPOSE 2053 8080
-CMD ["x-ui", "start"]
+FROM ghcr.io/mhsanaei/3x-ui:latest
+
+ENV PORT=8080
+
+EXPOSE 8080
+
+CMD ["sh", "-c", "x-ui start && tail -f /dev/null"]
